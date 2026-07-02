@@ -150,7 +150,7 @@ th{background:rgba(255,255,255,.08);color:#dbe7ff;text-transform:uppercase;font-
   <header class="appHeader">
     <div>
       <h1>Live Dashboard</h1>
-      <p>200 Club sales, active holds, revenue and draw tools.</p>
+      <p>200 Club ticket sales, active holds, revenue and draw tools.</p>
     </div>
     <div class="actions">
       <button id="refreshBtn">Refresh</button>
@@ -171,10 +171,10 @@ th{background:rgba(255,255,255,.08);color:#dbe7ff;text-transform:uppercase;font-
     <div class="card">
       <h2>Progress</h2>
       <div class="progressOuter"><div class="progressInner" id="progressInner"></div></div>
-      <p class="small" id="progressText">0 of 200 squares sold.</p>
+      <p class="small" id="progressText">0 of 200 tickets sold.</p>
 
       <h2 style="margin-top:22px">Winner Draw</h2>
-      <p class="small">Draws randomly from paid squares only.</p>
+      <p class="small">Draws randomly from paid tickets only.</p>
       <button id="drawBtn">Draw Winner</button>
       <div id="winnerBox" class="hidden"></div>
     </div>
@@ -191,7 +191,7 @@ th{background:rgba(255,255,255,.08);color:#dbe7ff;text-transform:uppercase;font-
       <button class="tabBtn active" id="activeTab">Active View</button>
       <button class="tabBtn" id="historyTab">History View</button>
     </div>
-    <p class="small" id="viewHelp">Active View only shows Paid, Held, Pending and Manual Review rows. Released and Expired rows are hidden here.</p>
+    <p class="small" id="viewHelp">Active View only shows Paid, Held, Pending and Manual Review tickets. Released and Expired holds are hidden here.</p>
     <div class="tableTools">
       <input id="searchBox" placeholder="Search name, email, phone or square">
       <select id="statusFilter">
@@ -207,7 +207,7 @@ th{background:rgba(255,255,255,.08);color:#dbe7ff;text-transform:uppercase;font-
     </div>
     <table>
       <thead>
-        <tr><th>Square</th><th>Status</th><th>Name</th><th>Email</th><th>Phone</th><th>Amount</th><th>Time</th><th>Actions</th></tr>
+        <tr><th>Ticket</th><th>Status</th><th>Name</th><th>Email</th><th>Phone</th><th>Amount</th><th>Time</th><th>Actions</th></tr>
       </thead>
       <tbody id="tbody"></tbody>
     </table>
@@ -217,7 +217,7 @@ th{background:rgba(255,255,255,.08);color:#dbe7ff;text-transform:uppercase;font-
 
 <script>
 const CONFIG = {
-  apiEndpoint: "https://script.google.com/macros/s/AKfycbxwsUJ4IXb2bhXtflUbRQB8G9UwwODY7CB4jpj5-yhWzXydsr_FOtGUh8U9_0Kb3XP9/exec"
+  apiEndpoint: "https://script.google.com/macros/s/AKfycbwkITuPjttpD8hkO_0PtZZ4pobOebKTbsoKnqZimsaO_PE8liQnL1jf0YzG-EFyoCq5/exec"
 };
 
 let rows = [];
@@ -314,7 +314,7 @@ function render() {
   document.getElementById("raised").textContent = money(raised);
   document.getElementById("pct").textContent = pct.toFixed(1) + "%";
   document.getElementById("progressInner").style.width = pct + "%";
-  document.getElementById("progressText").textContent = sold + " of 200 squares sold. " + available + " available. " + held + " active holds.";
+  document.getElementById("progressText").textContent = sold + " of 200 tickets sold. " + available + " available. " + held + " active holds.";
 
   renderRecent();
   renderTable();
@@ -400,7 +400,7 @@ function renderTable() {
 
   document.querySelectorAll("[data-release]").forEach(b => {
     b.onclick = async () => {
-      if (confirm("Release square " + b.dataset.release + "?")) {
+      if (confirm("Release ticket " + b.dataset.release + "?")) {
         await api("adminRelease", {square:b.dataset.release});
         await load();
       }
@@ -413,8 +413,8 @@ function setView(view) {
   document.getElementById("activeTab").classList.toggle("active", view === "active");
   document.getElementById("historyTab").classList.toggle("active", view === "history");
   document.getElementById("viewHelp").textContent = view === "active"
-    ? "Active View only shows Paid, Held, Pending and Manual Review rows. Released and Expired rows are hidden here."
-    : "History View shows every row, including Released and Expired holds for audit history.";
+    ? "Active View only shows Paid, Held, Pending and Manual Review tickets. Released and Expired holds are hidden here."
+    : "History View shows every ticket history row, including Released and Expired holds for audit history.";
   renderTable();
 }
 
@@ -450,7 +450,7 @@ document.getElementById("drawBtn").onclick = async () => {
 
 document.getElementById("exportBtn").onclick = () => {
   const csv = [
-    ["Square","Status","First Name","Last Name","Email","Phone","Amount","Timestamp"],
+    ["Ticket","Status","First Name","Last Name","Email","Phone","Amount","Timestamp"],
     ...rows.map(r => [r.square,r.status,r.firstName,r.lastName,r.email,r.phone,r.amount,r.timestamp])
   ].map(a => a.map(v => `"${String(v || "").replaceAll('"','""')}"`).join(",")).join("\n");
 
