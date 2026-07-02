@@ -6,109 +6,44 @@
 <title>200 Club Admin</title>
 <style>
 :root{
-  --navy:#020814;
-  --navy2:#061a3a;
-  --panel:#07162d;
-  --blue:#0b57d0;
-  --blue2:#2f80ff;
-  --gold:#ffd426;
-  --green:#18c37e;
-  --red:#e84658;
-  --muted:#aab7cc;
-  --line:rgba(255,255,255,.18);
+  --navy:#020814;--blue:#0b57d0;--blue2:#2f80ff;--gold:#ffd426;--green:#18c37e;--red:#e84658;--line:rgba(255,255,255,.18);
 }
 *{box-sizing:border-box}
-body{
-  margin:0;
-  min-height:100vh;
-  font-family:Arial,Helvetica,sans-serif;
-  color:white;
-  background:
-    radial-gradient(circle at 15% 0%, rgba(47,128,255,.28), transparent 34rem),
-    radial-gradient(circle at 90% 12%, rgba(255,212,38,.09), transparent 28rem),
-    linear-gradient(135deg,#010713,#06204a 54%,#020916);
-}
+body{margin:0;min-height:100vh;font-family:Arial,Helvetica,sans-serif;color:white;background:radial-gradient(circle at 15% 0%,rgba(47,128,255,.28),transparent 34rem),linear-gradient(135deg,#010713,#06204a 54%,#020916)}
 .hidden{display:none!important}
-.loginScreen{
-  min-height:100vh;
-  display:grid;
-  place-items:center;
-  padding:20px;
-}
-.loginCard{
-  width:min(470px,100%);
-  border:1px solid var(--line);
-  border-radius:30px;
-  padding:30px;
-  background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.05));
-  box-shadow:0 30px 90px rgba(0,0,0,.42);
-  text-align:center;
-}
-.lockIcon{
-  width:82px;height:82px;border-radius:26px;
-  background:linear-gradient(135deg,var(--blue),var(--blue2));
-  display:grid;place-items:center;margin:0 auto 16px;font-size:38px;
-  box-shadow:0 16px 36px rgba(47,128,255,.28);
-}
-h1{margin:0;text-transform:uppercase;letter-spacing:-.7px}
-.loginCard h1{font-size:34px}
-.subtitle{margin:10px 0 22px;color:#dbe7ff;line-height:1.5}
-label{display:block;text-align:left;font-size:13px;font-weight:900;margin:12px 0 7px;color:#eaf4ff;text-transform:uppercase;letter-spacing:.05em}
+.loginScreen{min-height:100vh;display:grid;place-items:center;padding:20px}
+.loginCard{width:min(470px,100%);border:1px solid var(--line);border-radius:30px;padding:30px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.05));box-shadow:0 30px 90px rgba(0,0,0,.42);text-align:center}
+.lockIcon{width:82px;height:82px;border-radius:26px;background:linear-gradient(135deg,var(--blue),var(--blue2));display:grid;place-items:center;margin:0 auto 16px;font-size:38px}
+h1{margin:0;text-transform:uppercase}
+.subtitle,.small,.msg{color:#dbe7ff;line-height:1.5}
+label{display:block;text-align:left;font-size:13px;font-weight:900;margin:12px 0 7px;color:#eaf4ff;text-transform:uppercase}
 input,button,select{font:inherit}
-input,select{
-  width:100%;height:46px;border-radius:14px;border:1px solid rgba(255,255,255,.28);
-  padding:0 14px;background:rgba(255,255,255,.95);color:#061a3a;
-}
-button{
-  border:0;border-radius:14px;height:44px;padding:0 16px;font-weight:950;cursor:pointer;
-  background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;
-  box-shadow:0 10px 26px rgba(47,128,255,.25);
-}
-.loginBtn{width:100%;height:50px;margin-top:16px}
-button.secondary{background:rgba(255,255,255,.10);border:1px solid var(--line);box-shadow:none}
+input,select{width:100%;height:46px;border-radius:14px;border:1px solid rgba(255,255,255,.28);padding:0 14px;background:rgba(255,255,255,.95);color:#061a3a}
+button{border:0;border-radius:14px;height:44px;padding:0 16px;font-weight:950;cursor:pointer;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white}
+button.secondary{background:rgba(255,255,255,.10);border:1px solid var(--line)}
 button.danger{background:linear-gradient(135deg,#b91c33,#e84658)}
-.msg{margin:14px 0 0;color:#dbe7ff;line-height:1.5;min-height:20px}
+.loginBtn{width:100%;height:50px;margin-top:16px}
 .error{color:#ffb7c0;font-weight:900}
 .app{max-width:1260px;margin:0 auto;padding:22px 16px 34px}
-.appHeader{
-  border:1px solid var(--line);border-radius:24px;padding:20px;
-  background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.04));
-  box-shadow:0 20px 60px rgba(0,0,0,.34);
-  display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px;
-}
-.appHeader h1{font-size:clamp(28px,4vw,48px);line-height:1}
-.appHeader p{margin:8px 0 0;color:#dbe7ff}
+.appHeader{border:1px solid var(--line);border-radius:24px;padding:20px;background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.04));display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}
 .actions{display:flex;gap:10px;flex-wrap:wrap}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:18px}
-.stat{
-  border:1px solid var(--line);border-radius:20px;padding:18px;background:rgba(0,0,0,.24);
-  box-shadow:0 16px 40px rgba(0,0,0,.24);text-align:center;
-}
+.stat{border:1px solid var(--line);border-radius:20px;padding:18px;background:rgba(0,0,0,.24);text-align:center}
 .stat b{display:block;font-size:clamp(28px,3vw,42px);color:white}
-.stat span{color:#dbe7ff;font-size:13px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}
-.stat.gold b{color:var(--gold)} .stat.green b{color:var(--green)} .stat.red b{color:#ff9ca7}
+.stat span{color:#dbe7ff;font-size:13px;text-transform:uppercase;font-weight:900}
+.stat.gold b{color:var(--gold)}.stat.green b{color:var(--green)}
 .dashboardGrid{display:grid;grid-template-columns:360px minmax(0,1fr);gap:18px}
-.card{
-  border:1px solid var(--line);border-radius:20px;padding:18px;background:rgba(0,0,0,.24);
-  box-shadow:0 16px 40px rgba(0,0,0,.24);
-}
+.card{border:1px solid var(--line);border-radius:20px;padding:18px;background:rgba(0,0,0,.24);box-shadow:0 16px 40px rgba(0,0,0,.24)}
 .card h2{margin:0 0 12px;text-transform:uppercase}
 .progressOuter{height:20px;background:rgba(255,255,255,.13);border:1px solid var(--line);border-radius:999px;overflow:hidden;margin:14px 0}
-.progressInner{height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--blue2));transition:width .35s ease}
-#winnerBox{
-  margin-top:14px;padding:14px;border-radius:16px;background:rgba(255,212,38,.12);
-  border:1px solid rgba(255,212,38,.32);color:#fff3a4;font-weight:950;line-height:1.5;
-}
+.progressInner{height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--blue2))}
+#winnerBox{margin-top:14px;padding:14px;border-radius:16px;background:rgba(255,212,38,.12);border:1px solid rgba(255,212,38,.32);color:#fff3a4;font-weight:950;line-height:1.5}
 .recentList{display:grid;gap:10px}
-.recentItem{
-  display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);
-  background:rgba(255,255,255,.06);border-radius:14px;padding:10px 12px;
-}
-.recentItem strong{color:#fff} .recentItem span{color:#dbe7ff}
+.recentItem{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:14px;padding:10px 12px}
 .tableCard{margin-top:18px;overflow:auto}
 .tableTools{display:grid;grid-template-columns:1fr 180px 180px;gap:10px;margin:12px 0 14px}
 .tabs{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 12px}
-.tabBtn{background:rgba(255,255,255,.08);border:1px solid var(--line);box-shadow:none}
+.tabBtn{background:rgba(255,255,255,.08);border:1px solid var(--line)}
 .tabBtn.active{background:linear-gradient(135deg,var(--blue),var(--blue2));border:0}
 table{width:100%;border-collapse:collapse;color:white}
 th,td{border-bottom:1px solid rgba(255,255,255,.14);padding:10px;text-align:left;font-size:14px;vertical-align:middle}
@@ -118,22 +53,12 @@ th{background:rgba(255,255,255,.08);color:#dbe7ff;text-transform:uppercase;font-
 .status.Held,.status.Pending{background:rgba(255,212,38,.16);color:#fff0a1}
 .status.Expired,.status.Released{background:rgba(255,255,255,.10);color:#cfd8e7}
 .status.Manual{background:rgba(232,70,88,.18);color:#ffb7c0}
-.rowBtns button{height:32px;font-size:12px;padding:0 10px}
 .empty{padding:22px;border:1px dashed var(--line);border-radius:16px;text-align:center;color:#dbe7ff}
-.small{color:#dbe7ff;line-height:1.5}
-.muted{color:#aab7cc}
-@media(max-width:980px){
-  .stats{grid-template-columns:1fr 1fr}
-  .dashboardGrid{grid-template-columns:1fr}
-  .appHeader{display:block}
-  .appHeader .actions{margin-top:14px}
-  .tableTools{grid-template-columns:1fr}
-}
+@media(max-width:980px){.stats{grid-template-columns:1fr 1fr}.dashboardGrid{grid-template-columns:1fr}.appHeader{display:block}.tableTools{grid-template-columns:1fr}}
 @media(max-width:560px){.stats{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <section class="loginScreen" id="loginScreen">
   <div class="loginCard">
     <div class="lockIcon">🔒</div>
@@ -148,15 +73,8 @@ th{background:rgba(255,255,255,.08);color:#dbe7ff;text-transform:uppercase;font-
 
 <section class="app hidden" id="app">
   <header class="appHeader">
-    <div>
-      <h1>Live Dashboard</h1>
-      <p>200 Club ticket sales, active holds, revenue and draw tools.</p>
-    </div>
-    <div class="actions">
-      <button id="refreshBtn">Refresh</button>
-      <button id="exportBtn" class="secondary">Export CSV</button>
-      <button id="logoutBtn" class="secondary">Lock</button>
-    </div>
+    <div><h1>Live Dashboard</h1><p class="small">200 Club ticket sales, active holds, revenue and draw tools.</p></div>
+    <div class="actions"><button id="refreshBtn">Refresh</button><button id="exportBtn" class="secondary">Export CSV</button><button id="logoutBtn" class="secondary">Lock</button></div>
   </header>
 
   <section class="stats">
@@ -169,171 +87,92 @@ th{background:rgba(255,255,255,.08);color:#dbe7ff;text-transform:uppercase;font-
 
   <section class="dashboardGrid">
     <div class="card">
-      <h2>Progress</h2>
-      <div class="progressOuter"><div class="progressInner" id="progressInner"></div></div>
-      <p class="small" id="progressText">0 of 200 tickets sold.</p>
-
-      <h2 style="margin-top:22px">Winner Draw</h2>
-      <p class="small">Draws randomly from paid tickets only.</p>
-      <button id="drawBtn">Draw Winner</button>
-      <div id="winnerBox" class="hidden"></div>
+      <h2>Progress</h2><div class="progressOuter"><div class="progressInner" id="progressInner"></div></div><p class="small" id="progressText">0 of 200 tickets sold.</p>
+      <h2 style="margin-top:22px">Winner Draw</h2><p class="small">Draws randomly from paid tickets only.</p><button id="drawBtn">Draw Winner</button><div id="winnerBox" class="hidden"></div>
     </div>
-
-    <div class="card">
-      <h2>Recent Paid Purchases</h2>
-      <div id="recentList" class="recentList"></div>
-    </div>
+    <div class="card"><h2>Recent Paid Purchases</h2><div id="recentList" class="recentList"></div></div>
   </section>
 
   <section class="card tableCard">
     <h2>Bookings</h2>
-    <div class="tabs">
-      <button class="tabBtn active" id="activeTab">Active View</button>
-      <button class="tabBtn" id="historyTab">History View</button>
-    </div>
+    <div class="tabs"><button class="tabBtn active" id="activeTab">Active View</button><button class="tabBtn" id="historyTab">History View</button></div>
     <p class="small" id="viewHelp">Active View only shows Paid, Held, Pending and Manual Review tickets. Released and Expired holds are hidden here.</p>
     <div class="tableTools">
-      <input id="searchBox" placeholder="Search name, email, phone or square">
-      <select id="statusFilter">
-        <option value="">All statuses</option>
-        <option value="Paid">Paid</option>
-        <option value="Held">Held</option>
-        <option value="Pending">Pending</option>
-        <option value="Manual Review">Manual Review</option>
-        <option value="Released">Released</option>
-        <option value="Expired">Expired</option>
-      </select>
+      <input id="searchBox" placeholder="Search name, email, phone or ticket">
+      <select id="statusFilter"><option value="">All statuses</option><option value="Paid">Paid</option><option value="Held">Held</option><option value="Pending">Pending</option><option value="Manual Review">Manual Review</option><option value="Released">Released</option><option value="Expired">Expired</option></select>
       <button class="secondary" id="clearSearch">Clear</button>
     </div>
-    <table>
-      <thead>
-        <tr><th>Ticket</th><th>Status</th><th>Name</th><th>Email</th><th>Phone</th><th>Amount</th><th>Time</th><th>Actions</th></tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
+    <table><thead><tr><th>Ticket</th><th>Status</th><th>Name</th><th>Email</th><th>Phone</th><th>Amount</th><th>Time</th><th>Actions</th></tr></thead><tbody id="tbody"></tbody></table>
     <div id="emptyState" class="empty hidden">Nothing to show in this view.</div>
   </section>
 </section>
 
 <script>
-const CONFIG = {
-  apiEndpoint: "https://script.google.com/macros/s/AKfycbwkITuPjttpD8hkO_0PtZZ4pobOebKTbsoKnqZimsaO_PE8liQnL1jf0YzG-EFyoCq5/exec"
-};
-
+const CONFIG = { apiEndpoint: "https://script.google.com/macros/s/AKfycbwkITuPjttpD8hkO_OPtZZ4pobOebKTbsoKnqZimsaO_PE8liQnL1jf0YzG-EFyoCq5/exec" };
 let rows = [];
 let unlocked = false;
 let currentView = "active";
-
 const adminKey = document.getElementById("adminKey");
 const loginMsg = document.getElementById("loginMsg");
 const loginScreen = document.getElementById("loginScreen");
 const app = document.getElementById("app");
-
 adminKey.value = sessionStorage.getItem("prpAdminKey") || "";
 
 async function api(action, payload = {}) {
-  if (!CONFIG.apiEndpoint) {
-    throw new Error("Admin page has not been connected to the Apps Script URL yet.");
-  }
-
   const res = await fetch(CONFIG.apiEndpoint, {
     method: "POST",
     headers: {"Content-Type":"text/plain;charset=utf-8"},
-    body: JSON.stringify({
-      action,
-      adminKey: adminKey.value.trim(),
-      ...payload
-    })
+    body: JSON.stringify({action, adminKey: adminKey.value.trim(), ...payload})
   });
-
   const data = await res.json();
   if (!data.ok) throw new Error(data.error || "Error");
   return data;
 }
-
 async function unlock() {
   loginMsg.textContent = "Checking password...";
   loginMsg.className = "msg";
-
   try {
     const data = await api("adminList");
     rows = data.rows || [];
     sessionStorage.setItem("prpAdminKey", adminKey.value.trim());
-
     unlocked = true;
     loginScreen.classList.add("hidden");
     app.classList.remove("hidden");
     render();
   } catch (err) {
-    loginMsg.textContent = err.message.includes("connected")
-      ? "Admin page needs the Apps Script URL added in admin.html first."
-      : "Access denied. Check the password.";
+    loginMsg.textContent = "Access denied. Check the password.";
     loginMsg.className = "msg error";
   }
 }
-
 async function load() {
   if (!unlocked) return;
   const data = await api("adminList");
   rows = data.rows || [];
   render();
 }
-
-function money(n) {
-  return "$" + Number(n || 0).toLocaleString();
-}
-
-function isActiveRow(r) {
-  return ["Paid", "Held", "Pending", "Manual Review"].includes(r.status);
-}
-
-function isActionableHold(r) {
-  return r.status === "Held" || r.status === "Pending";
-}
-
-function cleanAmount(r) {
-  if (r.status === "Released" || r.status === "Expired") return "—";
-  return r.amount ? "$" + r.amount : "—";
-}
-
-function displayName(r) {
-  const name = ((r.firstName || "") + " " + (r.lastName || "")).trim();
-  return name || "—";
-}
-
+function isActiveRow(r) { return ["Paid", "Held", "Pending", "Manual Review"].includes(r.status); }
+function isActionableHold(r) { return r.status === "Held" || r.status === "Pending"; }
+function cleanAmount(r) { if (r.status === "Released" || r.status === "Expired") return "—"; return r.amount ? "$" + r.amount : "—"; }
+function displayName(r) { const name = ((r.firstName || "") + " " + (r.lastName || "")).trim(); return name || "—"; }
 function render() {
   const sold = rows.filter(r => r.status === "Paid").length;
   const held = rows.filter(r => r.status === "Held" || r.status === "Pending").length;
   const available = 200 - sold - held;
   const pct = (sold / 200) * 100;
   const raised = sold * 50;
-
   document.getElementById("sold").textContent = sold;
   document.getElementById("held").textContent = held;
   document.getElementById("available").textContent = available;
-  document.getElementById("raised").textContent = money(raised);
+  document.getElementById("raised").textContent = "$" + raised.toLocaleString();
   document.getElementById("pct").textContent = pct.toFixed(1) + "%";
   document.getElementById("progressInner").style.width = pct + "%";
   document.getElementById("progressText").textContent = sold + " of 200 tickets sold. " + available + " available. " + held + " active holds.";
-
-  renderRecent();
-  renderTable();
+  renderRecent(); renderTable();
 }
-
 function renderRecent() {
-  const recent = [...rows]
-    .filter(r => r.status === "Paid")
-    .reverse()
-    .slice(0, 8);
-
-  const el = document.getElementById("recentList");
-  el.innerHTML = "";
-
-  if (!recent.length) {
-    el.innerHTML = '<p class="small">No paid purchases yet.</p>';
-    return;
-  }
-
+  const recent = [...rows].filter(r => r.status === "Paid").reverse().slice(0, 8);
+  const el = document.getElementById("recentList"); el.innerHTML = "";
+  if (!recent.length) { el.innerHTML = '<p class="small">No paid purchases yet.</p>'; return; }
   recent.forEach(r => {
     const item = document.createElement("div");
     item.className = "recentItem";
@@ -341,63 +180,29 @@ function renderRecent() {
     el.appendChild(item);
   });
 }
-
-function statusClass(status) {
-  if (status === "Paid") return "Paid";
-  if (status === "Held" || status === "Pending") return status;
-  if (status === "Manual Review") return "Manual";
-  return status || "";
-}
-
+function statusClass(status) { if (status === "Paid") return "Paid"; if (status === "Held" || status === "Pending") return status; if (status === "Manual Review") return "Manual"; return status || ""; }
 function filteredRows() {
   const q = document.getElementById("searchBox").value.trim().toLowerCase();
   const status = document.getElementById("statusFilter").value;
-
   return rows.filter(r => {
     if (currentView === "active" && !isActiveRow(r)) return false;
     if (status && r.status !== status) return false;
-
     if (!q) return true;
-    const haystack = [
-      r.square,
-      r.status,
-      r.firstName,
-      r.lastName,
-      r.email,
-      r.phone,
-      r.amount,
-      r.timestamp
-    ].join(" ").toLowerCase();
-
-    return haystack.includes(q);
+    return [r.square,r.status,r.firstName,r.lastName,r.email,r.phone,r.amount,r.timestamp].join(" ").toLowerCase().includes(q);
   });
 }
-
 function renderTable() {
   const tb = document.getElementById("tbody");
   const empty = document.getElementById("emptyState");
   const data = filteredRows().sort((a,b) => Number(a.square) - Number(b.square));
-
   tb.innerHTML = "";
-
   data.forEach(r => {
     const tr = document.createElement("tr");
     const action = isActionableHold(r) ? `<button class="danger" data-release="${r.square}">Release</button>` : "";
-    tr.innerHTML = `
-      <td><strong>#${r.square}</strong></td>
-      <td><span class="status ${statusClass(r.status)}">${r.status || ""}</span></td>
-      <td>${displayName(r)}</td>
-      <td>${r.email || "—"}</td>
-      <td>${r.phone || "—"}</td>
-      <td>${cleanAmount(r)}</td>
-      <td>${r.timestamp || "—"}</td>
-      <td class="rowBtns">${action}</td>
-    `;
+    tr.innerHTML = `<td><strong>#${r.square}</strong></td><td><span class="status ${statusClass(r.status)}">${r.status || ""}</span></td><td>${displayName(r)}</td><td>${r.email || "—"}</td><td>${r.phone || "—"}</td><td>${cleanAmount(r)}</td><td>${r.timestamp || "—"}</td><td>${action}</td>`;
     tb.appendChild(tr);
   });
-
   empty.classList.toggle("hidden", data.length > 0);
-
   document.querySelectorAll("[data-release]").forEach(b => {
     b.onclick = async () => {
       if (confirm("Release ticket " + b.dataset.release + "?")) {
@@ -407,7 +212,6 @@ function renderTable() {
     };
   });
 }
-
 function setView(view) {
   currentView = view;
   document.getElementById("activeTab").classList.toggle("active", view === "active");
@@ -417,7 +221,6 @@ function setView(view) {
     : "History View shows every ticket history row, including Released and Expired holds for audit history.";
   renderTable();
 }
-
 document.getElementById("loginBtn").onclick = unlock;
 adminKey.addEventListener("keydown", e => { if (e.key === "Enter") unlock(); });
 document.getElementById("refreshBtn").onclick = load;
@@ -425,42 +228,22 @@ document.getElementById("activeTab").onclick = () => setView("active");
 document.getElementById("historyTab").onclick = () => setView("history");
 document.getElementById("searchBox").oninput = renderTable;
 document.getElementById("statusFilter").onchange = renderTable;
-document.getElementById("clearSearch").onclick = () => {
-  document.getElementById("searchBox").value = "";
-  document.getElementById("statusFilter").value = "";
-  renderTable();
-};
-
-document.getElementById("logoutBtn").onclick = () => {
-  sessionStorage.removeItem("prpAdminKey");
-  adminKey.value = "";
-  unlocked = false;
-  app.classList.add("hidden");
-  loginScreen.classList.remove("hidden");
-};
-
+document.getElementById("clearSearch").onclick = () => { document.getElementById("searchBox").value = ""; document.getElementById("statusFilter").value = ""; renderTable(); };
+document.getElementById("logoutBtn").onclick = () => { sessionStorage.removeItem("prpAdminKey"); adminKey.value = ""; unlocked = false; app.classList.add("hidden"); loginScreen.classList.remove("hidden"); };
 document.getElementById("drawBtn").onclick = async () => {
-  if (!confirm("Draw a random winner from PAID squares only?")) return;
+  if (!confirm("Draw a random winner from PAID tickets only?")) return;
   const data = await api("drawWinner");
   const winner = data.winner;
   const box = document.getElementById("winnerBox");
   box.classList.remove("hidden");
-  box.innerHTML = `🏆 Winner: Square #${winner.square}<br>${winner.firstName} ${winner.lastName}<br>${winner.phone || winner.email || ""}`;
+  box.innerHTML = `🏆 Winner: Ticket #${winner.square}<br>${winner.firstName} ${winner.lastName}<br>${winner.phone || winner.email || ""}`;
 };
-
 document.getElementById("exportBtn").onclick = () => {
-  const csv = [
-    ["Ticket","Status","First Name","Last Name","Email","Phone","Amount","Timestamp"],
-    ...rows.map(r => [r.square,r.status,r.firstName,r.lastName,r.email,r.phone,r.amount,r.timestamp])
-  ].map(a => a.map(v => `"${String(v || "").replaceAll('"','""')}"`).join(",")).join("\n");
-
+  const csv = [["Ticket","Status","First Name","Last Name","Email","Phone","Amount","Timestamp"],...rows.map(r => [r.square,r.status,r.firstName,r.lastName,r.email,r.phone,r.amount,r.timestamp])]
+    .map(a => a.map(v => `"${String(v || "").replaceAll('"','""')}"`).join(",")).join("\n");
   const blob = new Blob([csv], {type:"text/csv"});
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "200-club-export.csv";
-  a.click();
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "200-club-export.csv"; a.click();
 };
-
 setInterval(load, 30000);
 </script>
 </body>
